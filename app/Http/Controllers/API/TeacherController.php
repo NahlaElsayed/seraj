@@ -32,7 +32,7 @@ class TeacherController extends BaseController{
             $approve->save();
             return $this->sendResponse($approve, 'Admin  Approved phone Teacher Successfully.');
             } else {
-            return $this->sendError('Admin Pendding doctor  not found.');
+            return $this->sendError('Admin Pendding teacher phone.');
         }
 
     }

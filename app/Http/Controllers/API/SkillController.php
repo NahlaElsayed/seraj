@@ -36,7 +36,7 @@ class SkillController extends BaseController{
         if ($skill) {
             return $this->sendResponse($skill, 'skill creatred successfully.');
         } else {
-            return $this->sendError('skill  not successfully.');
+            return $this->sendError('skill  not creatred successfully.');
         }
     }
 }

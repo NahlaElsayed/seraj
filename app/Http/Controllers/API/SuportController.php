@@ -14,9 +14,9 @@ class SuportController extends BaseController{
              $suports = Suport::with('user')->get();
              // Pass the clients data to the index view
              if ($suports) {
-                 return $this->sendResponse($suports, ' show all suports successfully.');
+                 return $this->sendResponse($suports, ' show all supports successfully.');
              } else {
-                 return $this->sendError(' show all suports not successfully.');
+                 return $this->sendError(' show all supports not successfully.');
              }
     }
 
@@ -34,7 +34,7 @@ class SuportController extends BaseController{
         $user = User::find($id);
 
         if(!$user){
-            return $this->sendError( 'teacher Not Found..');
+            return $this->sendError( 'user Not Found..');
         }
      
             $suport= new Suport();
@@ -42,7 +42,7 @@ class SuportController extends BaseController{
             $suport->detail = $request->input('detail');
             $suport->user_id = $user->id;
             $suport->save();
-            return $this->sendResponse($suport, 'country creatred successfully.');
+            return $this->sendResponse($suport, 'support creatred successfully.');
        
         }
      

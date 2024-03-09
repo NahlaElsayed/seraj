@@ -40,7 +40,7 @@ class VideoController extends BaseController{
             $video->link = $request->input('link');
             $video->teacher_id = $teacher->id;
             $video->save();
-            return $this->sendResponse($video, 'country creatred successfully.');
+            return $this->sendResponse($video, 'teacher creatred successfully.');
        
         }
      

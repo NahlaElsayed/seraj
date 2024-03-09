@@ -43,7 +43,7 @@ class PdfController extends BaseController{
             $pdf->link = $request->input('link');
             $pdf->teacher_id = $teacher->id;
             $pdf->save();
-            return $this->sendResponse($pdf, 'country creatred successfully.');
+            return $this->sendResponse($pdf, 'pdf creatred successfully.');
        
         }
      

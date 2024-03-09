@@ -55,7 +55,7 @@ class ExameController extends BaseController{
             $exame->leacture_id = $request->input('leacture_id');
             $exame->teacher_id = $teacher->id;
             $exame->save();
-            return $this->sendResponse($exame, 'country creatred successfully.');     
+            return $this->sendResponse($exame, 'exame creatred successfully.');     
       
     }
 
