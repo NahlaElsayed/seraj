@@ -139,3 +139,13 @@ CREATE TABLE `supports` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `records` (
+  `id` bigint UNSIGNED NOT NULL,
+  `student_id` bigint UNSIGNED DEFAULT NULL,
+  `leacture_id` bigint UNSIGNED DEFAULT NULL,
+ `status` enum('follow','unfollow') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unfollow',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

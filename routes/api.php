@@ -4,6 +4,7 @@ use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\ExameController;
 use App\Http\Controllers\API\LeactureController;
 use App\Http\Controllers\API\PdfController;
+use App\Http\Controllers\API\RecordController;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\SkillController;
 use App\Http\Controllers\API\StudentController;
@@ -88,6 +89,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
       
     });
 
+    Route::controller(RecordController::class)->group(function(){
+        Route::get('all-courses', 'index'); 
+    });
 
     Route::middleware('auth:sanctum')->controller(RegisterController::class)->group(function(){
         Route::post('change-password-teacher','changePasswordTeacher');
@@ -118,4 +122,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::middleware('auth:sanctum')->controller(StudentController::class)->group(function(){
         Route::post('update-student','updateStudent');
+    });
+
+    Route::middleware('auth:sanctum')->controller(RecordController::class)->group(function(){
+        Route::post('follow-course/{id}','store');
     });

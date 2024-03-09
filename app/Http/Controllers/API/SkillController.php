@@ -2,11 +2,7 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Skill;
-use App\Models\Teacher;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Notifications\EmailVerificationNotification;
 use Illuminate\Support\Facades\Validator;
 
 class SkillController extends BaseController{

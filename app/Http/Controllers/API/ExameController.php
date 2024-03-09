@@ -2,13 +2,9 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Exame;
-use App\Models\Leacture;
 use App\Models\Teacher;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Mail;
 use App\Models\Student;
 

@@ -1,14 +1,9 @@
 <?php 
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as BaseController;
-
-use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
-// use Illuminate\Support\Facades\Mail;
-use App\Models\Student;
 use App\Models\Suport;
 
 class SuportController extends BaseController{
