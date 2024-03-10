@@ -91,6 +91,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::controller(RecordController::class)->group(function(){
         Route::get('all-courses', 'index'); 
+
     });
 
     Route::middleware('auth:sanctum')->controller(RegisterController::class)->group(function(){
@@ -126,4 +127,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::middleware('auth:sanctum')->controller(RecordController::class)->group(function(){
         Route::post('follow-course/{id}','store');
+        Route::post('unfollow-course/{id}','unfollow');
+        Route::get('show-student-courses-record','show');
     });
+
+    

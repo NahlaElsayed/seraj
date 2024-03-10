@@ -49,5 +49,46 @@ class RecordController extends BaseController{
    
     }
 
+    public function unfollow(Request $request,$id){
+      
+        $record = Record::find($id);
+
+        $user_id = auth()->id();
+        $student = Student::where('user_id',$user_id)->first();
+
+        if(!$student){
+            return $this->sendError( 'student Not Found..');
+        }
+
+        $record->status = $request->status;
+
+        if($request->status == "unfollow") {
+            $record->update([
+                'status' => $request->status
+            ]);
+       
+            return $this->sendResponse($record, 'unfollow course successfully.');
+       
+        }
+        else{
+            return $this->sendError('student not found course');
+        }
+   
+    }
+
+    public function show(){
+
+        $user_id = auth()->id();
+        $student = Student::where('user_id',$user_id)->first();
+
+        if(!$student){
+            return $this->sendError( 'student Not Found..');
+        }
+
+            $record = Record::where('student_id',$student->id)->with('leacture')->get();
+            return $this->sendResponse($record, 'show  student record course successfully.');
+   
+    }
+
     }
   
