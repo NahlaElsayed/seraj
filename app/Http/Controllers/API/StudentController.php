@@ -68,7 +68,7 @@ class StudentController extends BaseController{
         if ($student) {
         $student->fname = $request->fname;
         $student->email = $request->email;
-        $student->image = $path;
+        $student->image =  $path;
         $student->lname = $request->lname;
         $student->age = $request->age;
         $student->save();
@@ -84,7 +84,8 @@ class StudentController extends BaseController{
         $student = Student::find($id);
         $user = User::find($student->user_id);
         $suport = Suport::where('user_id',$user->id)->delete();
-        $record = Record::where('user_id',$user->id)->delete();
+        $record = Record::where('student_id',$student->id)->delete();
+        
         // $user->delete();
         $student->delete();
         $user->delete();

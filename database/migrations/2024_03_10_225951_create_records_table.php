@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('leacture_id');
             $table->unsignedBigInteger('student_id');
             $table->enum('status', ['follow', 'unfollow'])->default('unfollow');
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('leacture_id')->references('id')->on('leactures');
             $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });

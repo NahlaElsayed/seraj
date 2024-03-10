@@ -4,6 +4,7 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Exame;
 use App\Models\Leacture;
 use App\Models\Pdf;
+use App\Models\Record;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
