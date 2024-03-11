@@ -68,7 +68,7 @@ class StudentController extends BaseController{
         if ($student) {
         $student->fname = $request->fname;
         $student->email = $request->email;
-        $student->image =  $path;
+        $student->image = env('IMAGE_URL'). $path;
         $student->lname = $request->lname;
         $student->age = $request->age;
         $student->save();

@@ -72,7 +72,7 @@ class TeacherController extends BaseController{
         if ($teacher) {
         $teacher->fname = $request->fname;
         $teacher->email = $request->email;
-        $teacher->image = $path;
+        $teacher->image = env('IMAGE_URL').$path;
         $teacher->lname = $request->lname;
         $teacher->age = $request->age;
         $teacher->save();
