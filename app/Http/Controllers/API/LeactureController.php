@@ -20,6 +20,24 @@ class LeactureController extends BaseController{
                  return $this->sendError(' show all leactures not successfully.');
              }
     }
+    public function countLeacture(){
+          
+    
+        $user_id = auth()->id();
+        $teacher = Teacher::where('user_id',$user_id)->first();
+
+        if(!$teacher){
+            return $this->sendError( 'teacher Not Found..');
+        }
+        $leacture = Leacture::where('teacher_id',$teacher->id)->count();
+        if($leacture)
+        {
+            return $this->sendResponse($leacture, 'get leactures teacher successfully.');
+        }
+        else{
+            return $this->sendError( 'leacture Not Found..');
+        }
+    }
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
@@ -52,7 +70,25 @@ class LeactureController extends BaseController{
             return $this->sendError( 'Phone number is not activated..');
         }
     }
+    public function getTeacherLeacture(){
+          
+    
+        $user_id = auth()->id();
+        $teacher = Teacher::where('user_id',$user_id)->first();
 
+        if(!$teacher){
+            return $this->sendError( 'teacher Not Found..');
+        }
+        $leacture = Leacture::where('teacher_id',$teacher->id)->get();
+        if($leacture)
+        {
+            return $this->sendResponse($leacture, 'get leactures teacher successfully.');
+        }
+        else{
+            return $this->sendError( 'leacture Not Found..');
+        }
+    }
+}
     // public function update(Request $request){
     //     $validator = Validator::make($request->all(), [
     //         'name' => 'nullable',
@@ -86,4 +122,4 @@ class LeactureController extends BaseController{
     //     }
     // }
 
-    }
+    

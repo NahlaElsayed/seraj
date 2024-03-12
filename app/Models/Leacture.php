@@ -16,5 +16,7 @@ class Leacture extends Model
     {
         return $this->belongsTo(Teacher::class , 'teacher_id');
     }
-
+public function record(){
+    return $this->belongsTo(Record::class);
+}
 }

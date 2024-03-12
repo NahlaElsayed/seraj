@@ -46,7 +46,24 @@ class PdfController extends BaseController{
             return $this->sendResponse($pdf, 'pdf creatred successfully.');
        
         }
-     
+        public function getTeacherPdf(){
+          
+    
+            $user_id = auth()->id();
+            $teacher = Teacher::where('user_id',$user_id)->first();
+    
+            if(!$teacher){
+                return $this->sendError( 'teacher Not Found..');
+            }
+            $pdf = Pdf::where('teacher_id',$teacher->id)->get();
+            if($pdf)
+            {
+                return $this->sendResponse($pdf, 'get pdfs teacher successfully.');
+            }
+            else{
+                return $this->sendError( 'pdf Not Found..');
+            }
+            }
 
     }
 

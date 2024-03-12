@@ -58,7 +58,25 @@ class ExameController extends BaseController{
             return $this->sendResponse($exame, 'exame creatred successfully.');     
       
     }
+    public function getTeacherExame(){
+          
+    
+        $user_id = auth()->id();
+        $teacher = Teacher::where('user_id',$user_id)->first();
 
+        if(!$teacher){
+            return $this->sendError( 'teacher Not Found..');
+        }
+        $exame = Exame::where('teacher_id',$teacher->id)->get();
+        if($exame)
+        {
+            return $this->sendResponse($exame, 'get exames teacher successfully.');
+        }
+        else{
+            return $this->sendError( 'exame Not Found..');
+        }
+        }
+    
     
 
     }

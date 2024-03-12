@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('correct');
             $table->integer('time');
             $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('leacture_id');
             
             $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('leacture_id')->references('id')->on('leactures');
             $table->timestamps();
         });
     }

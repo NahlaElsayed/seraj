@@ -91,6 +91,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::controller(RecordController::class)->group(function(){
         Route::get('all-courses', 'index'); 
+     
 
     });
 
@@ -102,18 +103,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::middleware('auth:sanctum')->controller(LeactureController::class)->group(function(){
         Route::post('store-leacture','store');
+        Route::get('teacher-leacture','getTeacherLeacture');
+        Route::get('count-leacture','countLeacture');
+        
     });
 
     Route::middleware('auth:sanctum')->controller(ExameController::class)->group(function(){
         Route::post('store-exame','store');
+        Route::get('teacher-exame','getTeacherExame');
     });
 
     Route::middleware('auth:sanctum')->controller(PdfController::class)->group(function(){
         Route::post('store-pdf','store');
+        Route::get('teacher-pdf','getTeacherPdf');
     });
 
     Route::middleware('auth:sanctum')->controller(VideoController::class)->group(function(){
         Route::post('store-video','store');
+        Route::get('teacher-video','getTeacherVideo');
     });
 
 

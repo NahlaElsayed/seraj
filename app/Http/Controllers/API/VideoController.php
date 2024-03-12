@@ -44,7 +44,24 @@ class VideoController extends BaseController{
        
         }
      
-
+        public function getTeacherVideo(){
+          
+    
+            $user_id = auth()->id();
+            $teacher = Teacher::where('user_id',$user_id)->first();
+    
+            if(!$teacher){
+                return $this->sendError( 'teacher Not Found..');
+            }
+            $video = Video::where('teacher_id',$teacher->id)->get();
+            if($video)
+            {
+                return $this->sendResponse($video, 'get videos teacher successfully.');
+            }
+            else{
+                return $this->sendError( 'video Not Found..');
+            }
+            }
     }
 
 

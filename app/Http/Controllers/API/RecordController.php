@@ -5,6 +5,7 @@ use App\Models\Leacture;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Teacher;
 
 class RecordController extends BaseController{
  
@@ -90,5 +91,7 @@ class RecordController extends BaseController{
    
     }
 
-    }
+   
+}
+
   
