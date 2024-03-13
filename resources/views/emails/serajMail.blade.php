@@ -350,7 +350,7 @@
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                          <td>
-                             <img src="----- " alt="Seraj" style="display:block;font-size:16px;border:0;outline:none;text-decoration:none" width="160" title="HOPE" class="adapt-img">
+                             <img src="----" alt="Seraj" style="display:block;font-size:16px;border:0;outline:none;text-decoration:none" width="160" title="Seraj" class="adapt-img">
                     	</td>
                     </tr>
                     <hr>
@@ -365,22 +365,6 @@
                 </td>
               </tr>
                     
-                    {{-- <tr>
-                      
-                       <td>
-                        <p>login url</p>
-                        <p>{{ $details['login_url'] }}</p>
-                       
-                </td> 
-              </tr> 
-                    <tr>
-
-                      <td>
-                        <p>your password</p>
-                        <p>{{ $details['password'] }}</p>
-                       
-                </td>
-              </tr> --}}
                     
                     <tr>
 

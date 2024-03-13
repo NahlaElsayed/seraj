@@ -1,12 +1,13 @@
 <?php 
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as BaseController;
+use App\Mail\OtpMail;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-// use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Student;
 
 class RegisterController extends BaseController{
@@ -70,7 +71,7 @@ class RegisterController extends BaseController{
                 'body' => 'Welcome To Seraj! You will receive an email with details when your Seraj is approved.',
                 'code' => 'otp is: ' . $otp
             ];
-        // Mail::to($user->email)->send(new OTPMail( $details));
+            Mail::to($user->email)->send(new OtpMail( $details));
            
             return response()->json(['teacher'=>$teacher,'user'=>$user,'emailOTP'=>$details]);
           
@@ -137,7 +138,7 @@ class RegisterController extends BaseController{
                 'body' => 'Welcome To Seraj! You will receive an email with details when your Seraj is approved.',
                 'code' => 'otp seraj is: ' . $otp
             ];
-        // Mail::to($user->email)->send(new OTPMail( $details));
+        Mail::to($user->email)->send(new OTPMail( $details));
            
             return response()->json(['student'=>$student,'user'=>$user,'emailOTP'=>$details]);
           
@@ -166,10 +167,12 @@ class RegisterController extends BaseController{
         if($user){
             $user->generateOtpCode();
             $details = [
+                'title' => 'Mail from Seraj.com',
+                'body' => 'Welcome To Seraj! You will receive an email with details when your Seraj is approved.',
                 'code' => 'Seraj OTP Code is: ' . $user->code
             ];
      
-            // Mail::to($user->email)->send(new OTPMail( $details));
+            Mail::to($user->email)->send(new OTPMail( $details));
 
 
             return $this->sendResponse($user, 'OTP sent successfully.');
@@ -195,11 +198,14 @@ class RegisterController extends BaseController{
         $user = User::where('email', $request->email)->first();
         if($user){
             $user->generateOtpCode();
+            
             $details = [
+                'title' => 'Mail from Seraj.com',
+                'body' => 'Welcome To Seraj! You will receive an email with details when your Seraj is approved.',
                 'code' => 'Seraj OTP Code is: ' . $user->code
             ];
 
-            // Mail::to($user->email)->send(new OTPMail( $details));
+            Mail::to($user->email)->send(new OTPMail( $details));
             return $this->sendResponse($user, 'OTP sent successfully.');
         }else{
             $teacher = Student::where('email', $request->email)->first();
